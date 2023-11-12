@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+
+<body>
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-md-2 navigate-left-container">
+                <button class="navigate-left-btn backBtn">< Back</button>
+                <button class="navigate-left-btn client_service_details_btn">Client Service Details</button>
+                <button class="navigate-left-btn send_us_page_btn">Send us a message</button>
+            </div>
+                <div class="col-md-10 form-container">
+                    <h3 class="form-order-ww-title">CUSTOMER SERVICE DETAILS</h3>
+                    <p>Our Client Service is available Monday to Friday from 9 am to 6 pm HKT, you can simply send us a
+                        message using the Contact Us form.</p>
+                    <p>Have queries for us? Send us a Message.
+                        We will respond to every message within 1 working day, excluding <a class="nation_day_link" href="#">national holidays</a> .</p>
+                    <p>Contact us</p>
+                    <form method="post" action="https://write-google-sheet.onrender.com/lider/api/writesheet/createOrderRequest">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-input" id="name" name="name" placeholder="Name:*">
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-input" id="email" name="email" placeholder="E-Mail:*">
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <select required class="form-control form-control-input" id="subject" name="subject">
+                                            <option selected  value="">Please select a subject:</option>
+                                            <option value="general">General Inquiry</option>
+                                            <option value="support">Technical Support</option>
+                                            <option value="sales">Sales Inquiry</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-input" id="lastName" name="last_name"
+                                            placeholder="Last Name:*">
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control form-control-input" id="phone" name="phone" placeholder="Phone Number:">
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-input" id="orderNumber"
+                                            placeholder="Order Number:">
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-group form-group-textarea">
+                                <textarea class="form-control form-control-textarea" id="message" name="message" rows="5"
+                                    placeholder="Message:"></textarea>
+                            </div>
+                            <button type="submit" class="btnSubmit">Submit</button>
+
+                            <div class="national_day">
+                                <h3 >NATIONAL HOLIDAYS</h3>
+                            <ul>
+                                <li>1 Jan (New Year)</li>
+                                <li>Lunar New Year’s Day</li>
+                                <li>The Second Day of Lunar New Year</li>
+                                <li>The Third Day of Lunar New Year</li>
+                                <li>Ching Ming Festival</li>
+                                <li>Easter Monday</li>
+                                <li>1 May (International Workers’ Day)</li>
+                                <li>The Birthday of Buddha</li>
+                                <li>Tuen Ng Festival</li>
+                                <li>HKSAR Establishment Day</li>
+                                <li>The day following Chinese Mid Autumn Festival</li>
+                                <li>National Day</li>
+                                <li>Chung Yeung Festival</li>
+                                <li>25 Dec (Christmas)</li>
+                                <li>The First weekday after Christmas day</li>
+                                <li>The service shall be suspended in case of Typhoon, level 8 or more</li>
+                              </ul>
+                            </div>
+
+                            <div class="row form-contact-container">
+                                <div class="col-md-6 block-contact block-contact-message">
+                                  <div class="block">
+                                    <h3>Need help?</h3>
+                                    <p>If you have any question or need help with your account, you may contact us to assist you.</p>
+                                    <p>We will respond to every message within 1 working day. Monday to Friday, excluding national holidays.</p>
+                                  </div>
+                                </div>
+                              
+                                <div class="col-md-6 block-contact block-contact-info" >
+                                  <div class="block">
+                                    <h3>Client service</h3>
+                                    <p>Contact us</p>
+                                    <p>From 9 am to 6 pm, Monday to Friday.</p>
+                                  </div>
+                                </div>
+                              </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <script src="index.js"></script>
+
+
+</html>

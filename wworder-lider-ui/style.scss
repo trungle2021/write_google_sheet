@@ -1,0 +1,360 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  color: #000;
+  font-family: Work Sans;
+  font-style: normal;
+  line-height: normal;
+}
+
+.wworder-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  /* Media query for responsive behavior */
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 970px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1170px;
+  }
+}
+.title-section {
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+}
+
+.header {
+  &-page-title {
+    text-transform: uppercase;
+    font-size: 6.4rem;
+    font-weight: 600;
+  }
+  &-line {
+    border: 1px solid black;
+  }
+}
+
+.main {
+  margin-bottom: 50px;
+  &-form {
+    width: 100%;
+    height: auto;
+
+    &-group {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+
+      input {
+        flex: 1 1 auto;
+      }
+    }
+
+    &-group input {
+      border: 0 !important;
+      border-radius: 0;
+      border-bottom: 1px solid black !important;
+    }
+
+    &-single-input {
+      width: 100%;
+    }
+
+    &-title {
+      text-transform: uppercase;
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+
+    &-section {
+      margin-top: 40px;
+    }
+
+    .customer {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+
+      &-information {
+        flex-grow: 0.549;
+      }
+
+      &-message {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0.451;
+      }
+
+      &-message textarea {
+        width: 100%;
+        height: 100%;
+        resize: none;
+        margin-bottom: 40px;
+      }
+
+      &-message-mobile{
+        display: none;
+      }
+    }
+
+    .order {
+      &-header {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+      &-example {
+        p {
+          font-size: 1.5rem;
+          font-style: italic;
+          font-weight: 400;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 200px;
+        max-height: 300px;
+      }
+    }
+
+    .notice {
+      &-header {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+    }
+
+    &-button-submit {
+      display: block;
+      margin: 30px auto;
+      background-color: black;
+      color: white;
+      font-size: 1.8rem;
+      padding: 1.2rem 0;
+      width: 40%;
+    }
+  }
+}
+
+// Laptop styles
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header {
+    &-page-title {
+      font-size: 4.4rem;
+    }
+  }
+
+  .main{
+    &-form {
+      &-title {
+        font-size: 2.2rem;
+      }
+      .order {
+        &-header {
+          font-size: 1.75rem;
+        }
+      }
+      .notice {
+        &-header {
+          font-size: 1.75rem;
+        }
+      }
+
+      &-button-submit {
+        font-size: 1.4rem;
+        padding: 1.1rem 0;
+        width: 40%;
+      }
+    }
+    
+  }
+
+  .title-section {
+    font-size: 2rem;
+  }
+  
+}
+
+// iPad styles
+@media (min-width: 768px) and (max-width: 991px) {
+  // Styles specific to iPad
+  .header {
+    &-page-title {
+      font-size: 3.4rem;
+    }
+  }
+
+  .title-section {
+    font-size: 1.8rem;
+  }
+
+  .main{
+    &-form {
+      &-title {
+        font-size: 2rem;
+      }
+
+      .order {
+        &-header {
+          font-size: 1.5rem;
+        }
+      }
+      .notice {
+        &-header {
+          font-size: 1.5rem;
+        }
+      }
+
+      &-button-submit {
+        font-size: 1.4rem;
+        padding: 1.1rem 0;
+        width: 40%;
+      }
+    }
+    
+  }
+
+ 
+}
+
+// Mobile styles
+@media (max-width: 767px) {
+  // Styles specific to mobile
+  .header {
+    &-page-title {
+      font-size: 2rem;
+    }
+  }
+
+  .title-section {
+    font-size: 1.3rem;
+  }
+
+  .main{
+    &-form {
+      &-title {
+        font-size: 1.5rem;
+      }
+
+      .customer {
+        height: fit-content;
+        gap: 0;
+        display: block;
+  
+        &-information {
+          flex-grow: 0;
+        }
+  
+        &-message {
+          display: none;
+        }
+
+        &-message-mobile {
+          display: block;
+        }
+  
+        &-message-mobile textarea {
+          width: 100%;
+          height: 150px;
+          resize: none;
+        }
+      }
+
+
+      .order {
+        &-header {
+          font-size: 1.5rem;
+        }
+      }
+      .notice {
+        &-header {
+          font-size: 1.5rem;
+        }
+      }
+
+      &-button-submit {
+        font-size: 1.4rem;
+        padding: 1.1rem 0;
+        width: 40%;
+      }
+    }
+    
+  }
+}
+
+.thankyou{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  &-title{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 9.6rem;
+  }
+
+  &-content{
+    font-size: 3.2rem;
+    text-align: justify;
+    text-align: center;
+    padding: 0 30px;
+    font-weight: 400;
+  }
+}
+
+//Loading
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 10px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}

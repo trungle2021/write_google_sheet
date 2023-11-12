@@ -1,0 +1,114 @@
+.container-custom{
+    padding: 6rem 12rem 0;
+}
+.nation_day_link{
+    color: red;
+    text-decoration: underline;
+}
+
+.form-container{
+    border: 1px solid #E4002B;
+    color: #E4002B;
+    padding: 20px 40px !important;
+    margin-bottom: 4rem;
+}
+.navigate-left-container{
+    display: flex;
+    flex-direction: column;
+    padding-right: 4rem !important;
+}
+
+.navigate-left-btn{
+    padding: 1rem;
+    border: 1px solid #E4002B;
+    color: #E4002B;
+    text-align: left;
+    background-color: white;
+    padding: 1rem 2.5rem;
+    font-size: 1.4rem !important;
+}
+
+.backBtn{
+    width: fit-content;
+    border-bottom: none;
+}
+
+.send_us_page_btn{
+    background-color: #E4002B;
+    color: Moccasin;
+}
+
+.btnSubmit{
+    margin-top: 20px;
+    width: 490px;
+    height: 50px;
+    background-color: #E4002B;
+    color: white;
+    border: none;
+}
+
+.form-order-ww-title{
+    font-style: bold;
+    font-weight: 600;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #E4002B !important; 
+    opacity: 1; /* Firefox */
+}
+
+
+select option { color: #E4002B; }
+select option:first-child{
+  color: black;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #E4002B;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: #E4002B;
+}
+
+/* Override form control style */
+.form-control-input {
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #E4002B !important;
+    box-shadow: none !important;
+  }
+
+  select {
+    appearance: menulist-button;
+    color: black;
+  }
+  
+  select:invalid {
+    color: #E4002B;
+  }
+  
+  .form-control-textarea{
+    border: 1px solid #E4002B !important;
+  }
+
+  .form-contact-container > .block-contact{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row.form-contact-container{
+    display: flex;
+}
+
+  .block-contact{
+    border: 1px solid #E4002B;  
+    min-height: 180px !important;
+    padding: 3rem !important;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.block-contact-info{
+    border-left: none !important;
+}
+ 
