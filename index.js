@@ -10,7 +10,7 @@ app.use(cors());
 app.use("/lider/writesheet/", writesheet);
 
 app.get("/", (req, res) => {
-  res.json("Ty khùng");
+  res.json("Server Started");
 });
 
 app.listen(port, () => console.log("listening on port " + port));
