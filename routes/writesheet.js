@@ -1,5 +1,5 @@
 const express = require("express");
-const { google } = require("googleapis");
+
 const router = express.Router();
 
 // const spreadsheetId = "1FtQyOHVwhJVl2UNs3jlN7XeF2y5JQUa1hL2ansrnH5U";
@@ -12,12 +12,14 @@ const getCurrentDateTime = require("../utils/getCurrentDate.js");
 
 
 router.post("/", async (req, res) => {
-  const googleSheets = getGoogleSheet;
-  console.log(googleSheets)
+  const googleSheets = await getGoogleSheet;
   const order = req.body;
   getNameOfFirstSheet(googleSheets).then(nameOfFirstSheet => {
-    googleSheets['sheet_name'] = nameOfFirstSheet;
-    return getLatestRowInSheet(googleSheets, spreadsheetId)
+    const googleSheetModified = {
+      ...googleSheets,
+      sheet_name : nameOfFirstSheet
+    }
+    return getLatestRowInSheet(googleSheetModified, spreadsheetId)
   }).then(lastValue => {
     order["order_number"] = generateOrderNumber(lastValue, 6);
     order["order_items"] = formatOrderItems(order["order_items"]);
@@ -36,6 +38,7 @@ router.post("/", async (req, res) => {
 
 const getLatestRowInSheet = (googleSheets, spreadsheetId, nameOfFirstSheet) => {
   const sheetName = googleSheets['sheet_name']
+
   return new Promise((resolve, reject) => {
     // Open the Google Sheet file
     googleSheets.spreadsheets.values.get(
@@ -106,14 +109,6 @@ const writeOrderToSheet = (order, googleSheets, auth) => {
         reject(error); // Reject with the error
       });
   });
-};
-
-const createGoogleSheetApiInstance = (version, authClient) => {
-  return google.sheets({ version: version, auth: authClient });
-};
-
-const createAuthClient = async (auth) => {
-  return await auth.getClient();
 };
 
 const getNameOfFirstSheet = async (sheets) => {
