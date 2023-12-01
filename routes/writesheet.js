@@ -9,24 +9,24 @@ const generateOrderNumber = require("../utils/generateOrderNumber.js");
 const formatOrderItems = require("../utils/formatOrderItems.js");
 const getCurrentDateTime = require("../utils/getCurrentDate.js");
 
-
-
 router.post("/", async (req, res) => {
-  const googleSheets = await getGoogleSheet;
-  
+  const {sheets, authClient} = await getGoogleSheet();
   const order = req.body;
-  getNameOfFirstSheet(googleSheets).then(nameOfFirstSheet => {
+  getNameOfFirstSheet(sheets).then(nameOfFirstSheet => {
     const googleSheetModified = {
-      ...googleSheets,
+      ...sheets,
       sheet_name : nameOfFirstSheet
     }
     return getLatestRowInSheet(googleSheetModified, spreadsheetId)
-  }).then((lastValue, googleSheets) => {
+  }).then(data => {
+    const lastValue = data.lastValue
+    const googleSheetModified = data.googleSheets
     order["order_number"] = generateOrderNumber(lastValue, 6);
     order["order_items"] = formatOrderItems(order["order_items"]);
     order["order_date"] = getCurrentDateTime();
     order["status"] = 'IN PROGRESS';
-    return writeOrderToSheet(order, googleSheets, authClient);
+    console.log("DONE getLatestRowInSheet")
+    return writeOrderToSheet(order, googleSheetModified, authClient);
   })
     .then((data) => {
       res.status(200).json({ data: data, msg: "Write successful" });
@@ -37,8 +37,8 @@ router.post("/", async (req, res) => {
     });
 });
 
-const getLatestRowInSheet = (googleSheets, spreadsheetId, nameOfFirstSheet) => {
-
+const getLatestRowInSheet = (googleSheets, spreadsheetId) => {
+  const sheetName = googleSheets['sheet_name']
   return new Promise((resolve, reject) => {
     // Open the Google Sheet file
     googleSheets.spreadsheets.values.get(
@@ -68,15 +68,14 @@ const getLatestRowInSheet = (googleSheets, spreadsheetId, nameOfFirstSheet) => {
             reject("Last Order ID is not a number" + lastRowValues)
           }
         }
-        resolve(lastValue, googleSheets);
+        resolve({lastValue, googleSheets});
       }
     );
   });
 };
 
 const writeOrderToSheet = (order, googleSheets, auth) => {
-  const sheetName = googleSheets['sheet_name']
-
+  const sheetName = googleSheets['sheet_name'] 
   return new Promise((resolve, reject) => {
     googleSheets.spreadsheets.values
       .append({

@@ -12,10 +12,14 @@ const createAuthClient = async (auth) => {
 };
 
 const getGoogleSheet = async () => {
+    console.log("getGoogleSheet")
     const credentials = new google.auth.GoogleAuth({ keyFile, scopes });
     const authClient = await createAuthClient(credentials);
-    const googleSheets = createGoogleSheetApiInstance("v4", authClient);
-    return googleSheets
+    const sheets = createGoogleSheetApiInstance("v4", authClient);
+    return {
+        sheets,
+        authClient
+    }
 }
 
-module.exports = getGoogleSheet();
+module.exports = getGoogleSheet()
