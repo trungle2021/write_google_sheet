@@ -13,6 +13,7 @@ const getCurrentDateTime = require("../utils/getCurrentDate.js");
 
 router.post("/", async (req, res) => {
   const googleSheets = await getGoogleSheet;
+  
   const order = req.body;
   getNameOfFirstSheet(googleSheets).then(nameOfFirstSheet => {
     const googleSheetModified = {
@@ -20,7 +21,7 @@ router.post("/", async (req, res) => {
       sheet_name : nameOfFirstSheet
     }
     return getLatestRowInSheet(googleSheetModified, spreadsheetId)
-  }).then(lastValue => {
+  }).then((lastValue, googleSheets) => {
     order["order_number"] = generateOrderNumber(lastValue, 6);
     order["order_items"] = formatOrderItems(order["order_items"]);
     order["order_date"] = getCurrentDateTime();
@@ -37,7 +38,6 @@ router.post("/", async (req, res) => {
 });
 
 const getLatestRowInSheet = (googleSheets, spreadsheetId, nameOfFirstSheet) => {
-  const sheetName = googleSheets['sheet_name']
 
   return new Promise((resolve, reject) => {
     // Open the Google Sheet file
@@ -68,7 +68,7 @@ const getLatestRowInSheet = (googleSheets, spreadsheetId, nameOfFirstSheet) => {
             reject("Last Order ID is not a number" + lastRowValues)
           }
         }
-        resolve(lastValue);
+        resolve(lastValue, googleSheets);
       }
     );
   });
