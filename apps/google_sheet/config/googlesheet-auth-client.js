@@ -1,5 +1,5 @@
 const getGoogleSheetAuthClientByCredentials = async (credentials) => {
-  return credentials.getClient()
+  return await credentials.getClient()
 }
 
 module.exports = getGoogleSheetAuthClientByCredentials

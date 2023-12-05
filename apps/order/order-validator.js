@@ -15,11 +15,15 @@ const validateOrderInput = (data) => {
   const { error } = schema.validate(data)
   if (error) {
     return {
+      result: false,
       count: error.details.length,
       errors: error.details.map((detail) => detail.message)
     }
   }
-  return null
+  return {
+    result: true,
+    data
+  }
 }
 
 module.exports = validateOrderInput

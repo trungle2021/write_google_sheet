@@ -4,7 +4,7 @@ const getGoogleSheetCredentials = require('./googlesheet-credentials')
 const getGoogleSheetAuthClientByCredentials = require('./googlesheet-auth-client')
 
 const googleSheetAPIConfig = async () => {
-  const credentials = await getGoogleSheetCredentials()
+  const credentials = getGoogleSheetCredentials()
   console.log('Load credentials successfully')
   const authClient = await getGoogleSheetAuthClientByCredentials(credentials)
   console.log('Load auth client successfully')
