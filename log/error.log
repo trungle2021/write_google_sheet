@@ -1,1 +1,0 @@
-[2023-12-06 14:07:07] [error] {"name":"Validation Error","statusCode":400,"status":"fail","isOperationError":true,"message":{"data":{"fullname":"Trung Le","email":"testgmail.com","phone":"123123123","address":"23 Hoang Kiem","country":"Vietnam","postal_code":"70000","message":"Hello","order_items":"abc"},"result":false,"count":1,"errors":["\"email\" must be a valid email"]}}
