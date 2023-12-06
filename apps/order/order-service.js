@@ -5,6 +5,7 @@ const formatOrderItems = require('../../utils/format-order-items')
 const getCurrentDateTime = require('../../utils/get-current-date')
 const orderStatus = require('./order-status')
 
+console.log('load dependencies')
 const createOrder = async (originalOrder) => {
   const sheetService = await googleSheetService
   originalOrder.order_items = formatOrderItems(originalOrder.order_items)
