@@ -1,0 +1,7 @@
+[2023-12-06 13:53:52] [error] {"name":"Validation Error","statusCode":400,"status":"fail","isOperationError":true,"message":{"data":{"fullname":"Trung Le","email":"testgmail.com","phone":123123123,"address":"23 Hoang Kiem","country":"Vietnam","postal_code":"70000","message":"Hello","order_items":"abc"},"result":false,"count":2,"errors":["\"email\" must be a valid email","\"phone\" must be a string"]}}
+[2023-12-06 14:04:04] [error] {"name":"Validation Error","statusCode":400,"status":"fail","isOperationError":true,"message":{"data":{"fullname":"Trung Le","email":"testgmail.com","phone":123123123,"address":"23 Hoang Kiem","country":"Vietnam","postal_code":"70000","message":"Hello","order_items":"abc"},"result":false,"count":2,"errors":["\"email\" must be a valid email","\"phone\" must be a string"]}}
+[2023-12-06 14:06:01] [info] Load google-sheet credentials successfully
+[2023-12-06 14:06:02] [info] Listening on port 1337
+[2023-12-06 14:06:02] [info] Create google-sheet auth client successfully
+[2023-12-06 14:06:02] [info] Create Google Sheet API successfully
+[2023-12-06 14:07:07] [error] {"name":"Validation Error","statusCode":400,"status":"fail","isOperationError":true,"message":{"data":{"fullname":"Trung Le","email":"testgmail.com","phone":"123123123","address":"23 Hoang Kiem","country":"Vietnam","postal_code":"70000","message":"Hello","order_items":"abc"},"result":false,"count":1,"errors":["\"email\" must be a valid email"]}}

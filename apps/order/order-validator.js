@@ -12,12 +12,14 @@ const schema = Joi.object({
 })
 
 const validateOrderInput = (data) => {
-  const { error } = schema.validate(data)
+  const { error } = schema.validate(data, { abortEarly: false })
   if (error) {
+    const errorMessages = error.details.map((detail) => detail.message)
     return {
+      data,
       result: false,
       count: error.details.length,
-      errors: error.details.map((detail) => detail.message)
+      errors: errorMessages
     }
   }
   return {

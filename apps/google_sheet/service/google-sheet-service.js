@@ -1,5 +1,6 @@
 const googleSheetAPIConfig = require('./../config/googlesheet-config')
-
+const logger = require('../../../utils/logging/winston')
+const AppError = require('../../error/app-error')
 const googleSheetService = googleSheetAPIConfig().then(({ authClient, sheetAPI }) => {
   const getNameOfChildSheet = async (spreadsheetId, indexOfChild) => {
     const response = await sheetAPI.spreadsheets.get({
@@ -20,7 +21,7 @@ const googleSheetService = googleSheetAPIConfig().then(({ authClient, sheetAPI }
 
     const { values } = response.data
     if (values.length <= 0) {
-      console.log('No data found.')
+      logger.error(new AppError('No data found for latest column', 500))
       return null
     }
 
@@ -29,7 +30,7 @@ const googleSheetService = googleSheetAPIConfig().then(({ authClient, sheetAPI }
     if (lastRowValues.length !== 2) {
       lastValue = lastRowValues[lastRowValues.length - 1]
       if (Number.isNaN(lastValue)) {
-        throw new Error(`Last Order ID is not a number${lastRowValues}`)
+        logger.error(new AppError(`Last Order ID is not a number${lastRowValues}`, 500))
       }
     }
     return { lastValue }

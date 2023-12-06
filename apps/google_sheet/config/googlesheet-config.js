@@ -2,14 +2,15 @@ const { google } = require('googleapis')
 const API_VERSION = process.env.GOOGLE_SHEET_API_VERSION
 const getGoogleSheetCredentials = require('./googlesheet-credentials')
 const getGoogleSheetAuthClientByCredentials = require('./googlesheet-auth-client')
+const logger = require('../../../utils/logging/winston')
 
 const googleSheetAPIConfig = async () => {
   const credentials = getGoogleSheetCredentials()
-  console.log('Load credentials successfully')
+  logger.info('Load google-sheet credentials successfully')
   const authClient = await getGoogleSheetAuthClientByCredentials(credentials)
-  console.log('Load auth client successfully')
+  logger.info('Create google-sheet auth client successfully')
   const sheetAPI = google.sheets({ version: API_VERSION, auth: authClient })
-  console.log('Create Google Sheet API successfully')
+  logger.info('Create Google Sheet API successfully')
   return {
     credentials,
     authClient,

@@ -1,11 +1,9 @@
 const logger = require('../../utils/logging/winston')
 
 const sendErrorDev = (err, res) => {
-  res.status(err.statusCode).json({
+  return res.status(err.statusCode).json({
     status: err.status,
-    name: err.name,
     error: err,
-    message: err.message,
     stack: err.stack
   })
 }
@@ -13,14 +11,13 @@ const sendErrorDev = (err, res) => {
 const sendErrorProduction = (err, res) => {
   // Operational Error, trusted send error response to client
   if (err.isOperationError) {
-    res.status(err.statusCode).json({
+    return res.status(err.statusCode).json({
       status: err.status,
       message: err.message
     })
   } else {
     // Bug or unknown error: dont leak error response to client
-    logger.error(new Error('ERROR 🎆' + err.message))
-    res.status(500).json({
+    return res.status(500).json({
       status: 'error',
       message: 'Something went wrong!'
     })
@@ -28,13 +25,20 @@ const sendErrorProduction = (err, res) => {
 }
 
 const ErrorController = (err, req, res, next) => {
-  err.status = err.status || 'error'
-  err.statusCode = err.statusCode || 500
+  const errors = { ...err }
+  errors.status = err.status || 'error'
+  errors.statusCode = err.statusCode || 500
+
+  if (err.name === 'Validation Error') {
+    errors.message = err.message
+  }
+
+  logger.error(JSON.stringify(errors))
 
   if (process.env.NODE_ENV === 'development') {
-    sendErrorDev(err, res)
+    sendErrorDev(errors, res)
   } else if (process.env.NODE_ENV === 'production') {
-    sendErrorProduction(err, res)
+    sendErrorProduction(errors, res)
   }
 }
 

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "deploy": "firebase deploy --only functions:api",
+    "deploy": "SET NODE_ENV=production & firebase deploy --only functions:api",
     "debug": "ndb nodemon server.js"
   },
   "keywords": [],
