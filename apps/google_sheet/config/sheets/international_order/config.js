@@ -10,11 +10,14 @@ const DESIRED_ORDER = [
   'postal_code',
   'address',
   'order_items',
+  'height',
+  'weight',
+  'measurements',
   'message',
   'order_date'
-] // A-K range
+] // A-N range
 
-const SHEET_ORDER_WRITABLE_RANGE = 'A:K'
+const SHEET_ORDER_WRITABLE_RANGE = 'A:N'
 
 module.exports = {
   CHILD_SHEET_NAME,

@@ -8,7 +8,10 @@ const schema = Joi.object({
   postal_code: Joi.string().required(),
   address: Joi.string().required(),
   order_items: Joi.string().required(),
-  message: Joi.string().required()
+  height: Joi.string(),
+  weight: Joi.string(),
+  measurements: Joi.string(),
+  message: Joi.string()
 })
 
 const validateOrderInput = (data) => {
