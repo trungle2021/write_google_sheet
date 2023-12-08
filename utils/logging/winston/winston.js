@@ -4,6 +4,8 @@ const LOG_ERROR_FILE_NAME = process.env.LOG_ERROR_FILE_NAME
 const LOG_INFO_FILE_NAME = process.env.LOG_INFO_FILE_NAME
 const LOG_FOLDER_NAME = process.env.LOG_FOLDER_NAME
 
+console.log(path.join(__dirname, '../../../', LOG_FOLDER_NAME, LOG_INFO_FILE_NAME))
+
 const logFormat = winston.format.printf(({ timestamp, level, message, stack }) => {
   if (stack) {
     return `[${timestamp}] [${level.toUpperCase()}] ${stack}`
@@ -26,13 +28,13 @@ module.exports = winston.createLogger({
     // Thiết lập ghi info log vào file info.log
     new winston.transports.File({
       level: 'info',
-      filename: path.join(__dirname, './../../', LOG_FOLDER_NAME, LOG_INFO_FILE_NAME)
+      filename: path.join(__dirname, '../../../', LOG_FOLDER_NAME, LOG_INFO_FILE_NAME)
     }),
 
     // Thiết lập ghi các errors vào file error.log
     new winston.transports.File({
       level: 'error',
-      filename: path.join(__dirname, './../../', LOG_FOLDER_NAME, LOG_ERROR_FILE_NAME)
+      filename: path.join(__dirname, '../../../', LOG_FOLDER_NAME, LOG_ERROR_FILE_NAME)
     })
   ]
 })

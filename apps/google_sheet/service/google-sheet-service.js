@@ -1,5 +1,5 @@
 const googleSheetAPIConfig = require('./../config/googlesheet-config')
-const logger = require('../../../utils/logging/winston')
+const logger = require('../../../utils/logging/logger')
 const AppError = require('../../error/app-error')
 const googleSheetService = googleSheetAPIConfig().then(({ authClient, sheetAPI }) => {
   const getNameOfChildSheet = async (spreadsheetId, indexOfChild) => {

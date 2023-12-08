@@ -2,7 +2,6 @@ const rfs = require('rotating-file-stream')
 const path = require('path')
 const morgan = require('morgan')
 const moment = require('moment-timezone')
-// const isProduction = process.env.NODE_ENV === 'production'
 const LOG_SIZE = process.env.LOG_SIZE
 const LOG_INTERVAL = process.env.LOG_INTERVAL
 const LOG_FOLDER_NAME = process.env.LOG_FOLDER_NAME
@@ -12,10 +11,8 @@ const LOG_ACCESS_FILE_NAME = process.env.LOG_ACCESS_FILE_NAME
 const accessLog = rfs.createStream(LOG_ACCESS_FILE_NAME, {
   size: LOG_SIZE,
   interval: LOG_INTERVAL,
-  path: path.join(__dirname, './../', LOG_FOLDER_NAME)
+  path: path.join(__dirname, '../../../', LOG_FOLDER_NAME)
 })
-
-// moment().format('llll');
 
 morgan.format('custom-log-format', (tokens, req, res) => {
   const time = moment().tz('Asia/Ho_Chi_Minh').format('YYYY-MM-DD HH:mm:ss')

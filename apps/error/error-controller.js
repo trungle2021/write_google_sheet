@@ -1,4 +1,4 @@
-const logger = require('../../utils/logging/winston')
+const logger = require('../../utils/logging/logger')
 
 const sendErrorDev = (err, res) => {
   return res.status(err.statusCode).json({

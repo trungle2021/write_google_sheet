@@ -2,6 +2,7 @@ const validateOrderInput = require('../order/order-validator')
 const OrderService = require('./order-service')
 const catchAsyncHandler = require('../../utils/catch-async/catch-async-handler')
 const AppError = require('../error/app-error')
+const logger = require('../../utils/logging/logger')
 
 const showInfo = (req, res, next) => {
   return res.status(200).json({
@@ -14,6 +15,7 @@ const createOrder = catchAsyncHandler(async (req, res, next) => {
   const validationResult = validateOrderInput(order)
   if (validationResult.result) {
     const orderCreated = await OrderService.createOrder(order)
+    logger.info(`Order created: ${orderCreated}`)
     return res.status(200).json({
       status: 'success',
       data: orderCreated,
