@@ -4,3 +4,5 @@ node_modules/*
 
 images/*
 !images/.gitkeep
+apps/google_sheet/config/info-credentials.json
+config.env
