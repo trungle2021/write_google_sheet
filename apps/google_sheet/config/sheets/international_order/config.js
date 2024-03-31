@@ -2,6 +2,7 @@ const CHILD_SHEET_NAME = 'ORDER'
 const SPREADSHEET_ID = '1mc1gBy62CG389XSssR23LAKKokMGnOOUZB1a5oEeXBc'
 const DESIRED_ORDER = [
   'status',
+  'order_date',
   'id',
   'fullname',
   'email',
@@ -13,8 +14,7 @@ const DESIRED_ORDER = [
   'height',
   'weight',
   'measurements',
-  'message',
-  'order_date'
+  'message'
 ] // A-N range
 
 const SHEET_ORDER_WRITABLE_RANGE = 'A:N'

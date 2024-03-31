@@ -1,0 +1,26 @@
+[2024-03-31 17:47:08] [info] Using winston logger
+[2024-03-31 17:47:08] [info] Load google-sheet credentials successfully
+[2024-03-31 17:47:09] [info] Local development
+[2024-03-31 17:47:09] [info] Listening on port 1337
+[2024-03-31 17:47:09] [info] Create google-sheet auth client successfully
+[2024-03-31 17:47:09] [info] Create Google Sheet API successfully
+[2024-03-31 17:47:40] [info] Using winston logger
+[2024-03-31 17:47:40] [info] Load google-sheet credentials successfully
+[2024-03-31 17:47:40] [info] Local development
+[2024-03-31 17:47:40] [info] Listening on port 1337
+[2024-03-31 17:47:40] [info] Create google-sheet auth client successfully
+[2024-03-31 17:47:40] [info] Create Google Sheet API successfully
+[2024-03-31 17:48:14] [info] Using winston logger
+[2024-03-31 17:48:14] [info] Load google-sheet credentials successfully
+[2024-03-31 17:48:14] [info] Local development
+[2024-03-31 17:48:14] [info] Listening on port 1337
+[2024-03-31 17:48:14] [info] Create google-sheet auth client successfully
+[2024-03-31 17:48:14] [info] Create Google Sheet API successfully
+[2024-03-31 17:48:43] [info] Using winston logger
+[2024-03-31 17:48:43] [info] Load google-sheet credentials successfully
+[2024-03-31 17:48:43] [info] Local development
+[2024-03-31 17:48:43] [info] Listening on port 1337
+[2024-03-31 17:48:43] [info] Create google-sheet auth client successfully
+[2024-03-31 17:48:43] [info] Create Google Sheet API successfully
+[2024-03-31 17:49:08] [error] {"name":"Validation Error","statusCode":400,"status":"fail","isOperationError":true,"message":{"data":{"fullname":"Khoa Le","email":"khoalegmail.com","phone":"0373405298","country":"Vietnam","postal_code":"70000","address":"22 Le Loi","order_items":"Hickey Jeans - Size M - 1\r\n\r\nUa Tee - Size XS - 2","message":"Good"},"result":false,"count":1,"errors":["\"email\" must be a valid email"]}}
+[2024-03-31 17:49:26] [info] Order created: [object Object]
